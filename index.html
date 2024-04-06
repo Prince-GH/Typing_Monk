@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyDown</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family: "Roboto Mono", monospace;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+        body{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction:column;
+            background: linear-gradient(154deg,#398062,rgb(7, 66, 66));
+        }
+        .container{
+            width: 80vw;
+            position: relative;
+        }
+        #keydata{
+            word-break:break-all;
+        }
+        #console{
+            position:absolute;
+            top:0px;
+            word-break:break-all;
+
+        }
+
+
+        .area{
+            min-width:50%;
+            max-width: 90vw;
+    
+            min-height: 50vh;
+            border: 3.5px solid #479273;
+            border-radius: 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        #TotalWords,#error{
+            color:white;
+            height: 30px;
+        }
+        #keydata{
+            color: rgb(190, 252, 220);
+            padding:5px;
+            max-height: auto;
+            background:#3b7a60;
+            border-radius: 3px;
+            letter-spacing: 2px;
+        }
+        
+        #console{
+            /* color: rgb(212, 255, 233); */
+            padding:5px;
+            max-height: auto;
+            /* background:#3b7a60; */
+            border-radius: 3px;
+            letter-spacing: 2px;
+        }
+      .heading{
+        font-size: 50px;
+        color: white;
+      }
+      .itme{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+</head>
+<body>
+    <div class="itme">
+        <a href="https://github.com/Prince-GH"> <img src="github.png" width="30rem"  alt="github"></a>
+    </div>
+    <div class="heading">TYPING MONK</div>
+<div class="area">
+    <div id="TotalWords"></div>
+    <div class="container">
+        <div id="keydata">Reload the page 'f5'</div>
+        <div id="console"></div>
+    </div>
+    <div id="error"></div>
+</div>
+</body>
+<script>
+    let TotalTime = document.getElementById("TotalTime");
+    let TotalWords = document.getElementById("TotalWords");
+    let speed = document.getElementById("speed");
+    let error = document.getElementById("error");
+    const keydata = document.getElementById("keydata");
+    const Console = document.getElementById("console");
+    let text;
+    let i=0;
+    (function StartTyping(){
+        keydata.innerHTML=prompt('Insert your text: ');
+        text = keydata.innerHTML.split("");
+        Start();
+    })();
+
+function Start(){
+    window.addEventListener("keydown",function (e){
+       error.innerHTML="";
+       let char = String(text[i]);
+       keyCheck(char,e.key);
+
+       console.log(char);
+       console.log(i);
+
+        if(e.key===char || e.key==="CapsLock"){
+
+            if(e.key===char){
+                Console.innerHTML+=e.key;
+                i++;
+                if(text.length==i){
+                    end();
+                }
+            }
+            Console.style.color='white';
+            
+        }else{
+            if(e.key==='Backspace'){
+                    i--;
+                    let TEXT = Console.innerHTML.split("");
+                    Console.innerHTML='';
+                    for(let j=0;j<TEXT.length-1;j++){
+                        Console.innerHTML+=TEXT[j];
+                    }
+                }else{
+                    error.innerHTML=`💡:${text[i]}`;
+                }
+        } 
+
+        }
+    );
+}
+
+    let words=0;
+    function keyCheck(key,KEY){
+        if(key==" " && KEY==" "){
+            ++words;
+            TotalWords.innerHTML=`Total Words:${words}`;
+        }
+    }
+  
+function end(){
+    keydata.innerHTML='';
+    Console.innerHTML='';
+    TotalWords.innerHTML='';
+    keydata.style.color='white';
+    keydata.innerHTML='Congratulations🏆';
+}
+
+</script>
+</html>
