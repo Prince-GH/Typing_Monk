@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            font-family: "Roboto Mono", monospace;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+        body{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction:column;
+            background: linear-gradient(154deg,#398062,rgb(7, 66, 66));
+        }
+        .container{
+            width: 80vw;
+            position: relative;
+        }
+        #keydata{
+            word-break:break-all;
+        }
+        #console{
+            position:absolute;
+            top:0px;
+            word-break:break-all;
+
+        }
+
+
+        .area{
+            min-width:50%;
+            max-width: 90vw;
+    
+            min-height: 50vh;
+            border: 3.5px solid #479273;
+            border-radius: 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        #TotalWords,#error{
+            color:white;
+            height: 30px;
+        }
+        #keydata{
+            color: rgb(190, 252, 220);
+            padding:5px;
+            max-height: auto;
+            background:#3b7a60;
+            border-radius: 3px;
+            letter-spacing: 2px;
+        }
+        
+        #console{
+            /* color: rgb(212, 255, 233); */
+            padding:5px;
+            max-height: auto;
+            /* background:#3b7a60; */
+            border-radius: 3px;
+            letter-spacing: 2px;
+        }
+      .heading{
+        font-size: 50px;
+        color: white;
+        font-family: "Tilt Neon", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+      }
+      .itme{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
