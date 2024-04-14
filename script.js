@@ -1,10 +1,12 @@
-  const form = document.querySelector('form');
+const form = document.querySelector('form');
     const data = document.getElementById('data');
     const Restart = document.querySelector('.reset');
     const a_type = document.getElementById('a_type');
     const a_back = document.getElementById('a_back');
     const a_error = document.getElementById('a_error');
     const a_done = document.getElementById('a_done');
+    const a_next = document.getElementById('a_next');
+    const a_wait = document.getElementById('a_wait');
     let TotalWords = document.getElementById("TotalWords");
     const keydata = document.getElementById("keydata");
     const Console = document.getElementById("console");
@@ -16,17 +18,24 @@
         a_type.currentTime=0;
         a_type.play();
         form.style.display='flex';
-        Restart.innerHTML='Restart';
+        Restart.style.display='none';
     });
     
     form.addEventListener('submit',(e)=>{
         e.preventDefault();
-        keydata.innerHTML=data.value;
-        text=keydata.innerHTML.split("");
-        data.value='';
-        a_type.play();
-        form.style.display='none';
-        Start();
+        if(data.value===""){
+            form.style.display='flex';
+            data.style.borderRight='5px solid #f32013';
+            a_error.currentTime='0';
+            a_error.play();
+        }else{
+            keydata.innerHTML=data.value;
+            text=keydata.innerHTML.split("");
+            data.value='';
+            a_type.play();
+            form.style.display='none';
+            Start();
+        }
     });
 
 function Start(){
@@ -93,6 +102,44 @@ function end(){
         a_error.pause();
         a_type.pause();
         a_done.pause();
-    })
-    setInterval(()=>{window.location.reload();},10000)
+    });
+    
+
+    let m = document.querySelector('i');
+    m.innerHTML='wait';
+    let j=0;
+    setInterval(()=>{
+        
+        if(j==0){
+            m.innerHTML='wait.';
+            j=1;
+        }else if(j==1){
+            m.innerHTML='wait..<BR>New Game';
+            j=2;
+        }else if(j==2){
+            m.innerHTML='wait...<br>New Game<br>Reset All Data<br>Done:30%';
+            j=3;
+        }else if(j==3){
+            m.innerHTML='wait..<br>New Game<br>Reset All Data<br>Done:60%';
+            j=4;
+        }else if(j==4){
+            m.innerHTML='wait.<br>New Game<br>Almost Complete<br>Done:80%';
+            j=5;
+        }else if(j==5){
+            m.innerHTML='Done 100%';
+            m.style.width='100px';
+            m.style.borderColor='#074242';
+            m.style.background='#3b7a60';
+            j=0;
+        }
+    },2000);
+
+    setTimeout(()=>{
+    a_next.play();
+   },12000);
+   
+    setTimeout(()=>{
+        Restart.style.display='block';
+        window.location.reload();
+    },13500)
 }
