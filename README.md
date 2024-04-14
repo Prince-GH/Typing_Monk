@@ -1,6 +1,6 @@
 ## TYPING MONK
 
-- 🔄 Reload your browser `f5` key.
+- 🔄 Start by clicking `start`.
 - 📩 Insert your text in pop up.
 - 💻 Practice your typing.
 
