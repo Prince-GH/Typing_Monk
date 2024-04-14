@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="keybord.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
     <title>Typing Monk</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="reset">Start</div>
+    <form class="text" style="display: none;">
+        <input type="text" id="data" placeholder="Insert your text:">
+        <div class="control">
+            <input type="reset">
+            <input type="submit" value="Start">
+        </div>
+    </form>
+    
     <div class="itme">
         <a href="https://github.com/Prince-GH"> <img src="github.png" width="30rem"  alt="github"></a>
     </div>
@@ -15,11 +24,15 @@
 <div class="area">
     <div id="TotalWords"></div>
     <div class="container">
-        <div id="keydata">Reload the page 'f5'</div>
+        <div id="keydata">Click Start</div>
         <div id="console"></div>
     </div>
     <div id="error"></div>
 </div>
+<audio id="a_type" src="a_type.mp3"></audio>
+<audio id="a_back" src="a_back.mp3"></audio>
+<audio id="a_error" src="a_error.mp3"></audio>
+<audio id="a_done" src="a_levelup.mp3"></audio>
 </body>
 <script src="script.js"></script>
 </html>
