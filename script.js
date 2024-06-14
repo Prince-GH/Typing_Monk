@@ -14,7 +14,6 @@ const form = document.querySelector('form');
     const Level2 = document.querySelector('.Level2');
     const Level3 = document.querySelector('.Level3');
 
-
     const a_type = document.getElementById('a_type');
     const a_back = document.getElementById('a_back');
     const a_error = document.getElementById('a_error');
@@ -29,15 +28,6 @@ const form = document.querySelector('form');
     let i=0;
     let isOpen = false;//to level dropup/dropdown
 
-
-
-
-
-
-
-
-
-
     //Restarting the game
     Restart.addEventListener('click',(e)=>{
         a_type.currentTime=0;
@@ -49,8 +39,6 @@ const form = document.querySelector('form');
         dropdown.style.display='none';
     });
     
-
-
 
     // Taking text from user
     form.addEventListener('submit',(e)=>{
@@ -153,30 +141,6 @@ function Start(){
         }
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Words count and check the pressed char is correct or not
