@@ -31,7 +31,7 @@ const form = document.querySelector('form');
     let isOpen = false;//to level dropup/dropdown
     let words=0;
 
-<<<<<<< HEAD
+
 //Back to previous action
 Back.addEventListener('click',()=>{
     a_type.currentTime=0;
@@ -43,9 +43,6 @@ Back.addEventListener('click',()=>{
 
 })
 
-
-=======
->>>>>>> 6f430f82805bc74e1524a5b3361d64db01b7ac20
     //Restarting the game
     Restart.addEventListener('click',(e)=>{
         a_type.currentTime=0;
@@ -59,10 +56,6 @@ Back.addEventListener('click',()=>{
     });
     
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6f430f82805bc74e1524a5b3361d64db01b7ac20
     // Taking text from user
     form.addEventListener('submit',(e)=>{
         e.preventDefault();
@@ -121,7 +114,6 @@ Back.addEventListener('click',()=>{
         Start();
     })
 
-
 //Control full alog after text come to the text array..
 
 function Start(){
@@ -178,16 +170,7 @@ function Start(){
     );
 }
 
-
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 6f430f82805bc74e1524a5b3361d64db01b7ac20
 //Words count and check the pressed char is correct or not
-
     
     function keyCheck(key,KEY){
         if(key==" " && KEY==" "){
