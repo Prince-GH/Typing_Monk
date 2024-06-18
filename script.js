@@ -7,6 +7,7 @@ const form = document.querySelector('form');
     const data = document.getElementById('data');
     //Game mode
     const Restart = document.querySelector('.reset');
+    const Back = document.querySelector('.back');
     let dropdownMenu = document.querySelector('.dropdown-menu');
     let dropup = document.querySelector('.dropup');
     let dropdown = document.querySelector('.dropdown');
@@ -23,22 +24,38 @@ const form = document.querySelector('form');
     let TotalWords = document.getElementById("TotalWords");
     const keydata = document.getElementById("keydata");
     const Console = document.getElementById("console");
+   
     let error = document.getElementById("error");
     let text; //text is an array that store text char
     let i=0;
     let isOpen = false;//to level dropup/dropdown
+    let words=0;
+
+//Back to previous action
+Back.addEventListener('click',()=>{
+    a_type.currentTime=0;
+    a_type.play();
+    setTimeout(()=>{
+        window.location.reload();
+        Back.style.display='none';
+    },220);
+
+})
+
 
     //Restarting the game
     Restart.addEventListener('click',(e)=>{
         a_type.currentTime=0;
         a_type.play();
         form.style.display='flex';
+        Back.style.display='block';
         Restart.style.display='none';
         dropup.style.display='none';
         isOpen=false;
         dropdown.style.display='none';
     });
     
+
 
     // Taking text from user
     form.addEventListener('submit',(e)=>{
@@ -64,6 +81,7 @@ const form = document.querySelector('form');
         isOpen=false;
         dropdown.style.display='none';
         Restart.style.display='none';
+        Back.style.display='block';
         dropup.style.display='none';
         keydata.innerHTML=typing.Beginner;
         text=keydata.innerHTML.split("");
@@ -76,6 +94,7 @@ const form = document.querySelector('form');
         isOpen=false;
         dropdown.style.display='none';
         Restart.style.display='none';
+        Back.style.display='block';
         dropup.style.display='none';
         keydata.innerHTML=typing.intermediate;
         text=keydata.innerHTML.split("");
@@ -88,15 +107,13 @@ const form = document.querySelector('form');
         isOpen=false;
         dropdown.style.display='none';
         Restart.style.display='none';
+        Back.style.display='block';
         dropup.style.display='none';
         keydata.innerHTML=typing.advanced;
         text=keydata.innerHTML.split("");
         a_type.play();
         Start();
     })
-
-
-
 
 
 //Control full alog after text come to the text array..
@@ -109,10 +126,12 @@ function Start(){
        console.log(char);
        console.log(i);
 
+
         if(e.key===char || e.key==="CapsLock"){
 
             if(e.key===char){
                 Console.innerHTML+=e.key;
+              
                 i++;
                 if(text.length==i){
                     end();
@@ -123,8 +142,18 @@ function Start(){
             Console.style.color='white';
         }else{
             if(e.key==='Backspace'){
+                
+                let TEXT = Console.innerHTML.split("");
+                if(i>0){
                     i--;
-                    let TEXT = Console.innerHTML.split("");
+                }
+
+                //Update the no of words
+                if(String(text[i])==" "){
+                    words--;
+                     TotalWords.innerHTML=`Total Words:${words}`;
+                }
+
                     Console.innerHTML='';
                     for(let j=0;j<TEXT.length-1;j++){
                         Console.innerHTML+=TEXT[j];
@@ -138,20 +167,26 @@ function Start(){
                 }
         } 
 
+
         }
     );
 }
 
 
+
+
+
+
 //Words count and check the pressed char is correct or not
 
-    let words=0;
+    
     function keyCheck(key,KEY){
         if(key==" " && KEY==" "){
             ++words;
             TotalWords.innerHTML=`Total Words:${words}`;
         }
     }
+    
   
 
 
