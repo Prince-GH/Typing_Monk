@@ -188,6 +188,7 @@ function end(){
     Console.innerHTML='';
     TotalWords.innerHTML='';
     keydata.style.color='white';
+    Console.style.display='none';
     keydata.innerHTML='Congratulations🏆';
     a_done.currentTime=0;
     a_done.play();
