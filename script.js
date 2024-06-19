@@ -31,7 +31,7 @@ const form = document.querySelector('form');
     let isOpen = false;//to level dropup/dropdown
     let words=0;
 
-<<<<<<< HEAD
+
 //Back to previous action
 Back.addEventListener('click',()=>{
     a_type.currentTime=0;
@@ -44,8 +44,6 @@ Back.addEventListener('click',()=>{
 })
 
 
-=======
->>>>>>> 6f430f82805bc74e1524a5b3361d64db01b7ac20
     //Restarting the game
     Restart.addEventListener('click',(e)=>{
         a_type.currentTime=0;
@@ -59,10 +57,6 @@ Back.addEventListener('click',()=>{
     });
     
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6f430f82805bc74e1524a5b3361d64db01b7ac20
     // Taking text from user
     form.addEventListener('submit',(e)=>{
         e.preventDefault();
@@ -121,10 +115,11 @@ Back.addEventListener('click',()=>{
         Start();
     })
 
-
 //Control full alog after text come to the text array..
 
 function Start(){
+    Console.style.display='block';
+
     window.addEventListener("keydown",function (e){
        error.innerHTML="";
        let char = String(text[i]);
@@ -137,7 +132,7 @@ function Start(){
 
             if(e.key===char){
                 Console.innerHTML+=e.key;
-              
+            
                 i++;
                 if(text.length==i){
                     end();
@@ -149,7 +144,7 @@ function Start(){
         }else{
             if(e.key==='Backspace'){
                 
-                let TEXT = Console.innerHTML.split("");
+                TEXT = Console.innerHTML.split("");
                 if(i>0){
                     i--;
                 }
@@ -179,13 +174,6 @@ function Start(){
 }
 
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 6f430f82805bc74e1524a5b3361d64db01b7ac20
 //Words count and check the pressed char is correct or not
 
     
@@ -197,28 +185,6 @@ function Start(){
     }
     
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function end(){
     i=0;
     keydata.innerHTML='';
