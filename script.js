@@ -43,7 +43,6 @@ Back.addEventListener('click',()=>{
 
 })
 
-
     //Restarting the game
     Restart.addEventListener('click',(e)=>{
         a_type.currentTime=0;
@@ -173,9 +172,7 @@ function Start(){
     );
 }
 
-
 //Words count and check the pressed char is correct or not
-
     
     function keyCheck(key,KEY){
         if(key==" " && KEY==" "){
