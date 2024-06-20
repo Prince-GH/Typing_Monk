@@ -21,7 +21,11 @@ const form = document.querySelector('form');
     const a_done = document.getElementById('a_done');
     const a_next = document.getElementById('a_next');
     const a_wait = document.getElementById('a_wait');
+
     let TotalWords = document.getElementById("TotalWords");
+    let TotalTime = document.getElementById("TimeCount");
+    let TotalSpeed = document.getElementById("SpeedCount");
+
     const keydata = document.getElementById("keydata");
     const Console = document.getElementById("console");
    
@@ -30,8 +34,9 @@ const form = document.querySelector('form');
     let i=0;
     let isOpen = false;//to level dropup/dropdown
     let words=0;
-
-
+    let Time = 0;
+    let Speed = 0;
+    
 //Back to previous action
 Back.addEventListener('click',()=>{
     a_type.currentTime=0;
@@ -117,8 +122,21 @@ Back.addEventListener('click',()=>{
 //Control full alog after text come to the text array..
 
 function Start(){
-    Console.style.display='block';
 
+    const countTime = setInterval(()=>{
+        Time++;
+        let min = Math.floor(Time/60);
+        let sec = Math.floor(Time%60);
+        let speed =Math.floor(words/(Time/60));
+        TotalSpeed.innerHTML=`${speed} WPM`;
+         if(Time/60<1){
+            TotalTime.innerHTML=`${sec}s`;
+        }else{
+            TotalTime.innerHTML=`${min} : ${sec}s`;
+        }
+    },1000); 
+
+    Console.style.display='block';
     window.addEventListener("keydown",function (e){
        error.innerHTML="";
        let char = String(text[i]);
@@ -134,6 +152,7 @@ function Start(){
             
                 i++;
                 if(text.length==i){
+                    this.clearInterval(countTime);
                     end();
                 }
                 a_type.currentTime=0;
@@ -151,7 +170,7 @@ function Start(){
                 //Update the no of words
                 if(String(text[i])==" "){
                     words--;
-                     TotalWords.innerHTML=`Total Words:${words}`;
+                     TotalWords.innerHTML=`${words} Words`;
                 }
 
                     Console.innerHTML='';
@@ -167,7 +186,6 @@ function Start(){
                 }
         } 
 
-
         }
     );
 }
@@ -177,11 +195,10 @@ function Start(){
     function keyCheck(key,KEY){
         if(key==" " && KEY==" "){
             ++words;
-            TotalWords.innerHTML=`Total Words:${words}`;
+            TotalWords.innerHTML=`${words} Words`;
         }
     }
-    
-  
+   
 function end(){
     i=0;
     keydata.innerHTML='';
@@ -239,9 +256,6 @@ function end(){
         window.location.reload();
     },13500)
 }
-
-
-
 
 //Menu
 

@@ -103,7 +103,13 @@
             font-size: 25px;
         }
 
-        #TotalWords,#error{
+        .data{
+          display: flex;
+          flex-direction: row;
+          gap:20px;
+          font-size: 18px;
+        }
+        #TotalWords,#error,#TimeCount,#SpeedCount{
             color:white;
             height: 30px;
         }
