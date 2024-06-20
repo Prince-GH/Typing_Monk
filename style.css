@@ -104,10 +104,11 @@
         }
 
         .data{
+          width: 100%;
           display: flex;
           flex-direction: row;
-          gap:20px;
-          font-size: 18px;
+          justify-content: space-evenly;
+          font-size: 18px; 
         }
         #TotalWords,#error,#TimeCount,#SpeedCount{
             color:white;
