@@ -8,6 +8,11 @@
             font-family: "Roboto Mono", monospace;
             font-optical-sizing: auto;
             font-style: normal;
+
+            user-select: none; /* Standard syntax */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
         }
 
         body{
@@ -104,7 +109,7 @@
         }
 
         #keydata,input{
-            color: #08572e;
+          color: #b0eece;
             padding:5px;
             max-height: auto;
             background:#3b7a60;
