@@ -29,6 +29,7 @@ const form = document.querySelector('form');
     const keydata = document.getElementById("keydata");
     const Console = document.getElementById("console");
    
+    const info = document.querySelector('.info');
     let error = document.getElementById("error");
     let text; //text is an array that store text char
     let i=0;
@@ -201,6 +202,7 @@ function Start(){
    
 function end(){
     i=0;
+    info.style.display='none';
     keydata.innerHTML='';
     Console.innerHTML='';
     TotalWords.innerHTML='';

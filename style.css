@@ -154,7 +154,7 @@
         right: 10px;
       }
 
-      .reset,i,.back{
+      .reset,i,.back,.info{
         position:absolute;
         bottom: 30px;
         right: 30px;
@@ -248,5 +248,29 @@
         
       }
 
- 
+      .info{
+        left: 20px;
+        bottom: 27px;
+        cursor: pointer;
+      }
 
+      #info{
+        opacity: 0;
+        position: absolute;
+        color: white;
+        bottom: 60px;
+        left:40px;
+        font-size:15px;
+        background: #216951;
+        border-left: 2px solid rgba(212, 205, 205, 0.76);
+        border-bottom: 3px solid rgba(214, 211, 211, 0.842);
+        border-radius: 5px;
+        padding: 5px;
+        transition: 1s ease;
+      }
+
+      .info:hover + #info{
+        transform: translateX(20px);
+        opacity: 1;
+      
+      }
