@@ -1,7 +1,7 @@
 const typing={
     Beginner:"asdf jkl; asdf jkl; asdf jkl; asdf jkl; qwer poiu ty zxcv .,mn b gh",
     intermediate:"The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. Jinxed wizards pluck ivy from the big quilt.",
-    advanced:"The rain pelted down relentlessly as the storm raged on. Lightning crackled across the sky, illuminating the dark clouds with a surreal glow. Thunder boomed in the distance, shaking the windows of the old house. Inside, a lone figure sat at a typewriter, determined to capture the chaos of the storm in words. With each keystroke, the story unfolded, mirroring the intensity of nature's fury outside."
+    advanced:"Photosynthesis occurs in the chloroplasts of plant cells, which contain the pigment chlorophyll. Chlorophyll absorbs light energy, primarily in the blue and red wavelengths, and converts it into chemical energy through a series of reactions known as the light-dependent and light-independent Calvin cycle reactions. This process is crucial for life on Earth."
 };
 const form = document.querySelector('form');
     const data = document.getElementById('data');
@@ -71,6 +71,11 @@ Back.addEventListener('click',()=>{
             a_error.currentTime='0';
             a_error.play();
         }else{
+            
+            if (data.value.length > 360) {
+                data.value = data.value.substring(0, 360);
+            }
+
             keydata.innerHTML=data.value;
             text=keydata.innerHTML.split("");
             data.value='';
