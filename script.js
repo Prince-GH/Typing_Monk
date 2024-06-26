@@ -5,7 +5,7 @@ const typing={
 };
 const form = document.querySelector('form');
     const data = document.getElementById('data');
-    //Game mode
+    //Game  mode
     const Restart = document.querySelector('.reset');
     const Back = document.querySelector('.back');
     let dropdownMenu = document.querySelector('.dropdown-menu');
@@ -14,7 +14,6 @@ const form = document.querySelector('form');
     const Level1 = document.querySelector('.Level1');
     const Level2 = document.querySelector('.Level2');
     const Level3 = document.querySelector('.Level3');
-
     const a_type = document.getElementById('a_type');
     const a_back = document.getElementById('a_back');
     const a_error = document.getElementById('a_error');
